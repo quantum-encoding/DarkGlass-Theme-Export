@@ -1,0 +1,28 @@
+# Backup files
+*.bak
+*.backup
+*~
+icons-backup/
+
+# Build artifacts
+*.pkg.tar.zst
+*.pkg.tar.xz
+pkg/
+src/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+.cache/

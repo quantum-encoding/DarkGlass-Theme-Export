@@ -1,0 +1,134 @@
+# Maintainer: Your Name <your.email@example.com>
+pkgname=jesternet-os
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="JesterNet OS - Glassmorphic theme, icons, and development stack installers for Arch Linux"
+arch=('any')
+url="https://github.com/yourusername/jesternet-os"
+license=('MIT')
+depends=(
+    'gnome-shell'
+    'gnome-tweaks'
+    'gtk3'
+    'gtk4'
+    'aria2'
+    'git'
+    'curl'
+    'wget'
+)
+optdepends=(
+    'gnome-shell-extension-dash-to-dock: macOS-style dock'
+    'gnome-shell-extension-dash-to-panel: Windows-style taskbar'
+    'gnome-shell-extension-blur-my-shell: Blur effects'
+    'pngquant: Icon optimization'
+    'optipng: Icon optimization'
+)
+makedepends=('git')
+provides=('jesternet-os' 'darkglass-theme' 'jesternet-icons')
+conflicts=('darkglass-theme')
+install=jesternet-os.install
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/yourusername/jesternet-os/archive/v${pkgver}.tar.gz")
+# For local testing, use:
+# source=("jesternet-os::git+file:///home/founder/arch-linux-extensions/DarkGlass-Theme-Export")
+sha256sums=('SKIP')
+
+# For git source (development):
+# source=("git+https://github.com/yourusername/jesternet-os.git")
+
+package() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    # For git source use: cd "${srcdir}/${pkgname}"
+
+    # Create directories
+    install -dm755 "${pkgdir}/usr/share/jesternet"
+    install -dm755 "${pkgdir}/usr/share/icons"
+    install -dm755 "${pkgdir}/usr/share/themes/DarkGlass/gnome-shell"
+    install -dm755 "${pkgdir}/usr/share/licenses/${pkgname}"
+    install -dm755 "${pkgdir}/usr/bin"
+
+    # Install main scripts
+    install -Dm755 jesternet-setup.sh "${pkgdir}/usr/share/jesternet/jesternet-setup.sh"
+    install -Dm755 install.sh "${pkgdir}/usr/share/jesternet/install.sh"
+    install -Dm755 desktop-style.sh "${pkgdir}/usr/share/jesternet/desktop-style.sh"
+    install -Dm755 optimize-icons.sh "${pkgdir}/usr/share/jesternet/optimize-icons.sh"
+
+    # Install dev-stacks
+    install -dm755 "${pkgdir}/usr/share/jesternet/dev-stacks"
+    install -Dm755 dev-stacks/*.sh "${pkgdir}/usr/share/jesternet/dev-stacks/"
+
+    # Install arch-install scripts
+    if [ -d "arch-install" ]; then
+        install -dm755 "${pkgdir}/usr/share/jesternet/arch-install"
+        install -Dm755 arch-install/*.sh "${pkgdir}/usr/share/jesternet/arch-install/" 2>/dev/null || true
+        install -Dm644 arch-install/*.md "${pkgdir}/usr/share/jesternet/arch-install/" 2>/dev/null || true
+        install -Dm644 arch-install/*.example "${pkgdir}/usr/share/jesternet/arch-install/" 2>/dev/null || true
+    fi
+
+    # Install icons
+    cp -r icons/DarkGlass "${pkgdir}/usr/share/icons/"
+
+    # Install GTK themes
+    install -dm755 "${pkgdir}/usr/share/jesternet/gtk"
+    install -Dm644 gtk/gtk-3.0.css "${pkgdir}/usr/share/jesternet/gtk/"
+    install -Dm644 gtk/gtk-4.0.css "${pkgdir}/usr/share/jesternet/gtk/"
+
+    # Install GNOME Shell theme
+    install -Dm644 gnome-shell/gnome-shell.css "${pkgdir}/usr/share/themes/DarkGlass/gnome-shell/"
+
+    # Install extension
+    if [ -d "darkglass-themer@jesternet.com" ]; then
+        install -dm755 "${pkgdir}/usr/share/gnome-shell/extensions/darkglass-themer@jesternet.com"
+        install -Dm644 darkglass-themer@jesternet.com/* "${pkgdir}/usr/share/gnome-shell/extensions/darkglass-themer@jesternet.com/"
+    fi
+
+    # Install config files
+    install -dm755 "${pkgdir}/usr/share/jesternet/config"
+    install -Dm644 config/*.conf "${pkgdir}/usr/share/jesternet/config/" 2>/dev/null || true
+
+    # Install documentation
+    install -Dm644 README.md "${pkgdir}/usr/share/doc/${pkgname}/README.md"
+
+    # Create launcher scripts
+    cat > "${pkgdir}/usr/bin/jesternet-setup" << 'EOF'
+#!/bin/bash
+exec /usr/share/jesternet/jesternet-setup.sh "$@"
+EOF
+    chmod 755 "${pkgdir}/usr/bin/jesternet-setup"
+
+    cat > "${pkgdir}/usr/bin/jesternet-theme" << 'EOF'
+#!/bin/bash
+exec /usr/share/jesternet/install.sh "$@"
+EOF
+    chmod 755 "${pkgdir}/usr/bin/jesternet-theme"
+
+    cat > "${pkgdir}/usr/bin/jesternet-desktop" << 'EOF'
+#!/bin/bash
+exec /usr/share/jesternet/desktop-style.sh "$@"
+EOF
+    chmod 755 "${pkgdir}/usr/bin/jesternet-desktop"
+
+    # License
+    cat > "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE" << 'EOF'
+MIT License
+
+Copyright (c) 2024 JesterNet
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+EOF
+}

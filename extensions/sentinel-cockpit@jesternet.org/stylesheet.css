@@ -1,0 +1,297 @@
+/* Sentinel Cockpit - Strategic Intelligence Dashboard Styles */
+
+/* Top bar icon */
+.sentinel-icon {
+    icon-size: 16px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* QUICK ACCESS BUTTON GRID                                                    */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.sentinel-button-grid {
+    padding: 8px;
+    spacing: 8px;
+}
+
+.sentinel-button-row {
+    spacing: 8px;
+}
+
+.sentinel-quick-button {
+    border-radius: 8px;
+    padding: 12px 8px;
+    min-width: 80px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 150ms ease;
+}
+
+.sentinel-quick-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.sentinel-quick-button:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sentinel-button-icon {
+    icon-size: 24px;
+    margin-bottom: 4px;
+}
+
+.sentinel-button-label {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.sentinel-button-value {
+    font-size: 9px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 2px;
+}
+
+/* Status-based button colors */
+.sentinel-button-normal {
+    background-color: rgba(46, 204, 113, 0.15);
+    border-color: rgba(46, 204, 113, 0.3);
+}
+
+.sentinel-button-normal:hover {
+    background-color: rgba(46, 204, 113, 0.25);
+}
+
+.sentinel-button-warning {
+    background-color: rgba(241, 196, 15, 0.15);
+    border-color: rgba(241, 196, 15, 0.3);
+}
+
+.sentinel-button-warning:hover {
+    background-color: rgba(241, 196, 15, 0.25);
+}
+
+.sentinel-button-critical {
+    background-color: rgba(231, 76, 60, 0.15);
+    border-color: rgba(231, 76, 60, 0.3);
+}
+
+.sentinel-button-critical:hover {
+    background-color: rgba(231, 76, 60, 0.25);
+}
+
+.sentinel-button-offline {
+    background-color: rgba(127, 140, 141, 0.15);
+    border-color: rgba(127, 140, 141, 0.3);
+}
+
+.sentinel-button-offline:hover {
+    background-color: rgba(127, 140, 141, 0.25);
+}
+
+/* Row labels */
+.sentinel-row-label {
+    font-size: 9px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 4px 8px 2px 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Alert badge for critical behavioral alerts */
+.sentinel-alert-badge {
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 10px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+/* Header styling */
+.sentinel-header {
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sentinel-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.sentinel-status {
+    font-size: 12px;
+    color: #27ae60;
+    font-weight: 500;
+}
+
+/* Alert severity styling */
+.sentinel-alert-critical {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 3px solid #e74c3c;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-alert-high {
+    background-color: rgba(230, 126, 34, 0.1);
+    border-left: 3px solid #e67e22;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-alert-medium {
+    background-color: rgba(241, 196, 15, 0.1);
+    border-left: 3px solid #f1c40f;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-alert-info {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 3px solid #3498db;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+/* Process chain items */
+.sentinel-process-chain {
+    background-color: rgba(52, 73, 94, 0.05);
+    border-left: 3px solid #34495e;
+    padding: 8px 12px;
+    margin: 2px 0;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+/* Status items */
+.sentinel-status-item {
+    background-color: rgba(46, 204, 113, 0.05);
+    border-left: 3px solid #2ecc71;
+    padding: 8px 12px;
+    margin: 2px 0;
+    font-size: 11px;
+}
+
+/* Wider menu styling */
+.popup-menu-content {
+    min-width: 600px !important;
+}
+
+/* Section separators */
+.popup-separator-menu-item {
+    background-color: rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 6px 12px;
+}
+
+/* Memory Pressure Section */
+.sentinel-memory-normal {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left: 3px solid #2ecc71;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-memory-warning {
+    background-color: rgba(241, 196, 15, 0.1);
+    border-left: 3px solid #f1c40f;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-memory-critical {
+    background-color: rgba(230, 126, 34, 0.1);
+    border-left: 3px solid #e67e22;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-memory-emergency {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 3px solid #e74c3c;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+/* Process Diagnostician Section */
+.sentinel-process-healthy {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left: 3px solid #2ecc71;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-process-zombie {
+    background-color: rgba(155, 89, 182, 0.1);
+    border-left: 3px solid #9b59b6;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-process-hog {
+    background-color: rgba(230, 126, 34, 0.1);
+    border-left: 3px solid #e67e22;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+/* AI Actions Section */
+.sentinel-ai-action {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 3px solid #3498db;
+    padding: 8px 12px;
+    margin: 2px 0;
+    font-weight: 500;
+}
+
+.sentinel-ai-action:hover {
+    background-color: rgba(52, 152, 219, 0.2);
+}
+
+/* Offline indicator */
+.sentinel-offline {
+    background-color: rgba(127, 140, 141, 0.1);
+    border-left: 3px solid #7f8c8d;
+    padding: 8px 12px;
+    margin: 2px 0;
+    font-style: italic;
+}
+
+/* Thermal Section */
+.sentinel-thermal-normal {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left: 3px solid #2ecc71;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-thermal-warning {
+    background-color: rgba(241, 196, 15, 0.1);
+    border-left: 3px solid #f1c40f;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-thermal-critical {
+    background-color: rgba(230, 126, 34, 0.1);
+    border-left: 3px solid #e67e22;
+    padding: 8px 12px;
+    margin: 2px 0;
+}
+
+.sentinel-thermal-throttling {
+    background-color: rgba(231, 76, 60, 0.15);
+    border-left: 3px solid #e74c3c;
+    padding: 8px 12px;
+    margin: 2px 0;
+    font-weight: bold;
+}

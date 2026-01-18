@@ -1,0 +1,7 @@
+{
+  "name": "Sentinel Command Center",
+  "description": "Unified system monitoring dashboard with thermal, memory, process, and AI analysis",
+  "uuid": "sentinel-cockpit@jesternet.org",
+  "shell-version": ["42", "43", "44", "45", "46", "47", "48", "49"],
+  "url": "https://github.com/jesternet/guardian-shield"
+}

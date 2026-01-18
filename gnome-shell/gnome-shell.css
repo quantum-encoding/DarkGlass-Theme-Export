@@ -1,0 +1,42 @@
+/* Dark glass pill-shaped quick settings buttons */
+
+/* Quick settings panel background */
+.quick-settings {
+    background-color: rgba(20, 20, 20, 0.92) !important;
+    border-radius: 22px !important;
+    padding: 14px !important;
+}
+
+/* Quick toggle buttons - dark glass overlay on default style */
+.quick-toggle {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.quick-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.10) !important;
+}
+
+.quick-toggle:checked {
+    background-color: rgba(53, 132, 228, 0.25) !important;
+}
+
+/* Keep arrow buttons small */
+.quick-toggle-arrow > StIcon {
+    icon-size: 12px !important;
+}
+
+/* System menu styling */
+.popup-menu-content {
+    background-color: rgba(20, 20, 20, 0.92) !important;
+    border-radius: 18px !important;
+    padding: 8px !important;
+}
+
+.popup-menu-item {
+    border-radius: 14px !important;
+    padding: 10px 14px !important;
+}
+
+.popup-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+}

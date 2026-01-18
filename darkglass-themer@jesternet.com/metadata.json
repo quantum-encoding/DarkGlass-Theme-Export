@@ -1,0 +1,15 @@
+{
+  "name": "DarkGlass Themer",
+  "description": "Visual theme editor for DarkGlass cyberpunk aesthetic. Adjust colors, transparency, blur, and more from the top bar.",
+  "uuid": "darkglass-themer@jesternet.com",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49"
+  ],
+  "url": "https://github.com/jesternet/darkglass-themer",
+  "version": 1,
+  "settings-schema": "org.gnome.shell.extensions.darkglass-themer"
+}

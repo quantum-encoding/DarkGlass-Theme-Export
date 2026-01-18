@@ -1,0 +1,35 @@
+# ============================================================================
+# JesterNet Arch Install Configuration
+# ============================================================================
+# Copy this file to 'install.conf' and customize for automated installation
+# Usage: ./jesternet-arch-install.sh install.conf
+# ============================================================================
+
+# Target disk (WILL BE ERASED!)
+# Leave empty for interactive selection
+TARGET_DISK=""
+
+# User configuration
+HOSTNAME="jesternet"
+USERNAME="architect"
+TIMEZONE="America/New_York"
+LOCALE="en_US.UTF-8"
+KEYMAP="us"
+
+# Partition sizes (in GB)
+EFI_SIZE="1"
+SWAP_SIZE="16"
+ROOT_SIZE="200"
+# HOME gets the remainder
+
+# Desktop style: "dock" (macOS) or "taskbar" (Windows)
+DESKTOP_STYLE="dock"
+
+# Development stacks (space-separated)
+# Options: tauri go python zig web android office creator
+# Leave empty for none, or use "all" for everything
+DEV_STACKS=""
+
+# Password (WARNING: Stored in plain text!)
+# For security, leave empty and enter interactively
+USER_PASSWORD=""

@@ -1,0 +1,20 @@
+[Icon Theme]
+Name=DarkGlass
+Comment=Custom Dark Glass Icons
+Inherits=Adwaita,hicolor
+Directories=apps/scalable,places/scalable,mimetypes/scalable
+
+[apps/scalable]
+Size=512
+Context=Applications
+Type=Scalable
+
+[places/scalable]
+Size=512
+Context=Places
+Type=Scalable
+
+[mimetypes/scalable]
+Size=512
+Context=MimeTypes
+Type=Scalable

@@ -1,0 +1,7 @@
+{
+  "name": "Log Sentinel V2",
+  "description": "Lightweight snapshot-based log monitoring for GNOME",
+  "uuid": "log-sentinel-v2@quantum-encoding.ltd",
+  "shell-version": ["42", "43", "44", "45", "46", "47", "48", "49"],
+  "url": "https://github.com/quantum-encoding-ltd/log-sentinel-v2"
+}

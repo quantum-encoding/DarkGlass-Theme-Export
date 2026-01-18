@@ -1,0 +1,49 @@
+post_install() {
+    echo ""
+    echo "╔══════════════════════════════════════════════════════════════════╗"
+    echo "║                JesterNet OS Installed!                           ║"
+    echo "╚══════════════════════════════════════════════════════════════════╝"
+    echo ""
+    echo "Commands available:"
+    echo "  jesternet-setup    - Main setup menu (interactive)"
+    echo "  jesternet-theme    - Install DarkGlass theme to your profile"
+    echo "  jesternet-desktop  - Choose Dock (macOS) or Taskbar (Windows) style"
+    echo ""
+    echo "Development stack installers:"
+    echo "  jesternet-setup tauri     - Rust + Tauri + Svelte"
+    echo "  jesternet-setup android   - Android SDK + NDK"
+    echo "  jesternet-setup go        - Go development"
+    echo "  jesternet-setup python    - Python + Poetry"
+    echo "  jesternet-setup web       - Node + Bun + Vite"
+    echo ""
+    echo "Quick start:"
+    echo "  jesternet-setup"
+    echo ""
+    gtk-update-icon-cache -f -t /usr/share/icons/DarkGlass 2>/dev/null || true
+}
+
+post_upgrade() {
+    echo ""
+    echo "JesterNet OS upgraded to $1"
+    echo ""
+    echo "Run 'jesternet-setup' to access the setup menu."
+    echo ""
+    gtk-update-icon-cache -f -t /usr/share/icons/DarkGlass 2>/dev/null || true
+}
+
+pre_remove() {
+    echo "Removing JesterNet OS..."
+}
+
+post_remove() {
+    echo ""
+    echo "JesterNet OS has been removed."
+    echo ""
+    echo "Note: Your personal configurations in ~/.config and ~/.local remain."
+    echo "To fully clean up, manually remove:"
+    echo "  ~/.local/share/icons/DarkGlass"
+    echo "  ~/.themes/DarkGlass"
+    echo "  ~/.config/gtk-3.0/gtk.css (if it was JesterNet)"
+    echo "  ~/.config/gtk-4.0/gtk.css (if it was JesterNet)"
+    echo ""
+}

@@ -1,0 +1,30 @@
+/* Dark glass pill buttons */
+@define-color dark_glass_bg rgba(20, 20, 20, 0.85);
+@define-color glass_border rgba(255, 255, 255, 0.1);
+
+/* Nautilus - darker and more transparent for both sidebar and main area */
+.nautilus-window .sidebar,
+.nautilus-window sidebar,
+.nautilus-window .sidebar-pane,
+placessidebar,
+.nautilus-window scrolledwindow,
+.nautilus-window .view,
+.nautilus-window iconview {
+    background-color: rgba(10, 10, 15, 0.65);
+    backdrop-filter: blur(20px);
+}
+
+.nautilus-window .sidebar row,
+placessidebar row {
+    background-color: transparent;
+}
+
+.nautilus-window .sidebar row:hover,
+placessidebar row:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nautilus-window .sidebar row:selected,
+placessidebar row:selected {
+    background-color: rgba(53, 132, 228, 0.3);
+}

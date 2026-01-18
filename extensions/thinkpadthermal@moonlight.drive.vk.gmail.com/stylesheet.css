@@ -1,0 +1,43 @@
+/* Add your custom extension styling here */
+
+.tpt-button,
+.tpt-button .layout {
+  padding: 0;
+  margin: 0;
+}
+.tpt-button .section {
+  margin-right: 7px;
+}
+.tpt-button .section > * {
+  margin-right: 2px;
+}
+.tpt-button .section > *:first-child {
+  margin-right: 3px;
+}
+.tpt-button .section:last-child,
+.tpt-button .section > *:last-child {
+  margin-right: 0px;
+}
+
+.tpt-button .text-only .value,
+.tpt-button .unit {
+  font-size: 80%;
+}
+
+.tpt-popup .title,
+.tpt-popup .item {
+  margin: 0px;
+  color: inherit;
+}
+.tpt-popup .title {
+  font-weight: bold;
+}
+
+.tpt-popup .item,
+.tpt-popup .submenu,
+.tpt-popup .dropdown-button {
+  /* padding-left: 16px; */
+}
+.tpt-popup .value {
+  color: inherit;
+}
