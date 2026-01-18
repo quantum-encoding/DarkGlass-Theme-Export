@@ -699,7 +699,7 @@ echo "Base configuration complete"
 CHROOT_EOF
 
     chmod +x /mnt/root/chroot-setup.sh
-    arch-chroot /mnt /bin/bash /tmp/chroot-setup.sh
+    arch-chroot /mnt /bin/bash /root/chroot-setup.sh
 
     log_success "System configured"
 }
@@ -711,7 +711,7 @@ CHROOT_EOF
 install_desktop() {
     log_step "Installing GNOME desktop environment..."
 
-    cat > /mnt/tmp/install-desktop.sh << 'DESKTOP_EOF'
+    cat > /mnt/root/install-desktop.sh << 'DESKTOP_EOF'
 #!/bin/bash
 set -e
 
@@ -774,8 +774,8 @@ systemctl enable gdm
 echo "Desktop installation complete"
 DESKTOP_EOF
 
-    chmod +x /mnt/tmp/install-desktop.sh
-    arch-chroot /mnt /bin/bash /tmp/install-desktop.sh
+    chmod +x /mnt/root/install-desktop.sh
+    arch-chroot /mnt /bin/bash /root/install-desktop.sh
 
     log_success "GNOME desktop installed"
 }
@@ -1040,10 +1040,10 @@ KRBEOF
     # Run post-install hook if provided
     if [ -n "$POST_INSTALL_HOOK" ] && [ -f "$POST_INSTALL_HOOK" ]; then
         log_step "Running post-install hook..."
-        cp "$POST_INSTALL_HOOK" /mnt/tmp/post-install-hook.sh
-        chmod +x /mnt/tmp/post-install-hook.sh
-        arch-chroot /mnt /bin/bash /tmp/post-install-hook.sh
-        rm -f /mnt/tmp/post-install-hook.sh
+        cp "$POST_INSTALL_HOOK" /mnt/root/post-install-hook.sh
+        chmod +x /mnt/root/post-install-hook.sh
+        arch-chroot /mnt /bin/bash /root/post-install-hook.sh
+        rm -f /mnt/root/post-install-hook.sh
         log_success "Post-install hook completed"
     fi
 
@@ -1057,7 +1057,7 @@ KRBEOF
 install_aur_helper() {
     log_step "Installing yay (AUR helper)..."
 
-    cat > /mnt/tmp/install-yay.sh << 'YAY_EOF'
+    cat > /mnt/root/install-yay.sh << 'YAY_EOF'
 #!/bin/bash
 cd /tmp
 git clone https://aur.archlinux.org/yay.git
@@ -1095,7 +1095,7 @@ cleanup() {
 
     # Remove temporary scripts
     rm -f /mnt/root/chroot-setup.sh
-    rm -f /mnt/tmp/install-desktop.sh
+    rm -f /mnt/root/install-desktop.sh
 
     # Create first-boot instruction file
     cat > /mnt/home/${USERNAME}/FIRST_BOOT_README.txt << README_EOF
