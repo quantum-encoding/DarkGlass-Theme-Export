@@ -649,7 +649,7 @@ configure_system() {
     log_step "Configuring system..."
 
     # Create configuration script to run inside chroot
-    cat > /mnt/tmp/chroot-setup.sh << CHROOT_EOF
+    cat > /mnt/root/chroot-setup.sh << CHROOT_EOF
 #!/bin/bash
 set -e
 
@@ -698,7 +698,7 @@ mkinitcpio -P
 echo "Base configuration complete"
 CHROOT_EOF
 
-    chmod +x /mnt/tmp/chroot-setup.sh
+    chmod +x /mnt/root/chroot-setup.sh
     arch-chroot /mnt /bin/bash /tmp/chroot-setup.sh
 
     log_success "System configured"
@@ -1094,7 +1094,7 @@ cleanup() {
     log_step "Cleaning up..."
 
     # Remove temporary scripts
-    rm -f /mnt/tmp/chroot-setup.sh
+    rm -f /mnt/root/chroot-setup.sh
     rm -f /mnt/tmp/install-desktop.sh
 
     # Create first-boot instruction file
