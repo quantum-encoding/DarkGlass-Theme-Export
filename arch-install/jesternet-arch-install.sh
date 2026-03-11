@@ -72,9 +72,6 @@ POST_INSTALL_HOOK=""      # Path to custom script to run
 DOMAIN_JOIN_PREP="false"  # Install packages for AD/LDAP join
 DOMAIN_REALM=""           # e.g., "CORP.EXAMPLE.COM"
 
-# Silent mode (no interactive prompts, requires all config set)
-SILENT_MODE="false"
-
 # ============================================================================
 # Colors
 # ============================================================================
