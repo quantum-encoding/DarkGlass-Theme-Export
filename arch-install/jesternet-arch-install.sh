@@ -262,7 +262,7 @@ list_disks() {
     echo ""
     echo -e "${CYAN}Available disks:${NC}"
     echo ""
-    lsblk -d -p -n -o NAME,SIZE,MODEL | grep -E "^/dev/(sd|nvme|vd|mmcblk)" | while read line; do
+    lsblk -d -p -n -o NAME,SIZE,TYPE,MODEL | awk '$3 == "disk"' | grep -vE "^/dev/(loop|sr|fd|ram)" | while read line; do
         echo "  $line"
     done
     echo ""
@@ -510,8 +510,9 @@ select_dev_stacks() {
 partition_disk() {
     log_step "Partitioning disk $TARGET_DISK..."
 
-    # Determine partition naming (nvme vs sda)
-    if [[ "$TARGET_DISK" == *"nvme"* ]] || [[ "$TARGET_DISK" == *"mmcblk"* ]]; then
+    # Determine partition naming: devices ending in a digit need 'p' separator
+    # e.g. nvme0n1 -> nvme0n1p1, mmcblk0 -> mmcblk0p1, but sda -> sda1
+    if [[ "$TARGET_DISK" =~ [0-9]$ ]]; then
         PART_PREFIX="${TARGET_DISK}p"
     else
         PART_PREFIX="${TARGET_DISK}"
