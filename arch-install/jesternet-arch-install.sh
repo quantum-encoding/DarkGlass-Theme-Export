@@ -1075,18 +1075,7 @@ KRBEOF
 install_aur_helper() {
     log_step "Installing yay (AUR helper)..."
 
-    cat > /mnt/root/install-yay.sh << 'YAY_EOF'
-#!/bin/bash
-cd /tmp
-git clone https://aur.archlinux.org/yay.git
-cd yay
-sudo -u nobody makepkg -si --noconfirm
-cd ..
-rm -rf yay
-YAY_EOF
-
-    # This needs to run as the user after first boot
-    # Create a first-boot script instead
+    # yay must be built as a regular user, so create a first-boot script
     cat > /mnt/home/${USERNAME}/install-yay.sh << 'YAY_USER_EOF'
 #!/bin/bash
 cd /tmp
