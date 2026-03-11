@@ -675,7 +675,9 @@ hwclock --systohc
 
 # Locale
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-echo "${LOCALE} UTF-8" >> /etc/locale.gen
+if [ "${LOCALE}" != "en_US.UTF-8" ]; then
+    echo "${LOCALE} UTF-8" >> /etc/locale.gen
+fi
 locale-gen
 echo "LANG=${LOCALE}" > /etc/locale.conf
 
