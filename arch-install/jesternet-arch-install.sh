@@ -753,8 +753,8 @@ pacman -S --noconfirm --needed \
     loupe \
     gedit
 
-# Audio (PipeWire)
-pacman -S --noconfirm --needed \
+# Audio (PipeWire) - --ask 4 auto-resolves conflicts (e.g. jack2 vs pipewire-jack)
+pacman -S --noconfirm --needed --ask 4 \
     pipewire \
     pipewire-alsa \
     pipewire-pulse \
