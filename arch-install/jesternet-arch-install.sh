@@ -262,7 +262,7 @@ list_disks() {
     echo ""
     echo -e "${CYAN}Available disks:${NC}"
     echo ""
-    lsblk -d -p -n -o NAME,SIZE,MODEL | grep -E "^/dev/(sd|nvme|vd)" | while read line; do
+    lsblk -d -p -n -o NAME,SIZE,MODEL | grep -E "^/dev/(sd|nvme|vd|mmcblk)" | while read line; do
         echo "  $line"
     done
     echo ""
@@ -511,7 +511,7 @@ partition_disk() {
     log_step "Partitioning disk $TARGET_DISK..."
 
     # Determine partition naming (nvme vs sda)
-    if [[ "$TARGET_DISK" == *"nvme"* ]]; then
+    if [[ "$TARGET_DISK" == *"nvme"* ]] || [[ "$TARGET_DISK" == *"mmcblk"* ]]; then
         PART_PREFIX="${TARGET_DISK}p"
     else
         PART_PREFIX="${TARGET_DISK}"
